@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import {
   Camera,
   Frame,
@@ -9,11 +9,13 @@ import {
   X,
   ArrowUpRight,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function LeBoldStudiosHomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollYProgress } = useScroll();
+const navLinks = ["HOME", "WHO WE ARE", "OUR SERVICES", "PRICING"];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -31,76 +33,110 @@ export default function LeBoldStudiosHomePage() {
       `}</style>
 
       {/* Navigation */}
-      <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-[#F5F1E8]/95 backdrop-blur-md border-b border-[#2C2416]/10"
-            : "bg-transparent"
-        }`}
+     <nav
+  className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+    scrolled
+      ? "bg-[#F5F1E8]/95 backdrop-blur-md border-b border-[#2C2416]/10"
+      : "bg-transparent"
+  }`}
+>
+  <div className="max-w-[1800px] mx-auto px-8 md:px-16 py-6 flex items-center justify-between">
+    {/* Logo */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="text-2xl tracking-[0.2em]"
+      style={{ fontFamily: "'Gilda Display', serif" }}
+    >
+      LEBOLD
+    </motion.div>
+
+    {/* Desktop Nav Links */}
+    <div
+      className="hidden md:flex items-center gap-12"
+      style={{ fontFamily: "'Tenor Sans', sans-serif" }}
+    >
+      {["HOME", "WHO WE ARE", "OUR SERVICES", "PRICING"].map((link) => (
+        <a
+          key={link}
+          href={`#${link.toLowerCase().replace(/\s/g, "-")}`}
+          className="text-sm tracking-[0.15em] hover:text-[#8B7355] transition-colors"
+        >
+          {link}
+        </a>
+      ))}
+      <a
+        href="#booking"
+        className="border border-[#2C2416] px-8 py-3 text-sm tracking-[0.15em] hover:bg-[#2C2416] hover:text-[#F5F1E8] transition-all duration-300"
       >
-        <div className="max-w-[1800px] mx-auto px-8 md:px-16 py-6 flex items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-2xl tracking-[0.2em]"
-            style={{ fontFamily: "'Gilda Display', serif" }}
-          >
-            LEBOLD
-          </motion.div>
+        BOOKING
+      </a>
+    </div>
 
-          <div
-            className="hidden md:flex items-center gap-12"
-            style={{ fontFamily: "'Tenor Sans', sans-serif" }}
-          >
-            {["HOME", "WHO WE ARE", "OUR SERVICES", "PRICING"].map(
-              (link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase().replace(/\s/g, "-")}`}
-                  className="text-sm tracking-[0.15em] hover:text-[#8B7355] transition-colors"
-                >
-                  {link}
-                </a>
-              )
-            )}
-            <a
-              href="#booking"
-              className="border border-[#2C2416] px-8 py-3 text-sm tracking-[0.15em] hover:bg-[#2C2416] hover:text-[#F5F1E8] transition-all duration-300"
-            >
-              BOOKING
-            </a>
-          </div>
+    {/* Mobile Menu Toggle */}
+    <button
+      onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      className="md:hidden"
+    >
+      {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+    </button>
+  </div>
 
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden">
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+  {/* Mobile Fullscreen Menu */}
+  <AnimatePresence>
+  {mobileMenuOpen && (
+    <motion.div
+      key="mobileMenu"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center"
+    >
+      {/* Close Icon */}
+      <motion.button
+        onClick={() => setMobileMenuOpen(false)}
+        initial={{ opacity: 0, rotate: -90 }}
+        animate={{ opacity: 1, rotate: 0 }}
+        exit={{ opacity: 0, rotate: 90 }}
+        transition={{ duration: 0.3 }}
+        className="absolute top-8 right-8"
+      >
+        <X size={32} className="text-[#2C2416]" />
+      </motion.button>
 
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-8 pb-6 space-y-6"
-            style={{ fontFamily: "'Tenor Sans', sans-serif" }}
-          >
-            {["HOME", "WHO WE ARE", "OUR SERVICES", "PRICING"].map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase().replace(/\s/g, "-")}`}
-                className="block text-sm tracking-[0.15em]"
-              >
-                {link}
-              </a>
-            ))}
-            <a
-              href="#booking"
-              className="block border border-[#2C2416] px-8 py-3 text-sm tracking-[0.15em] text-center"
-            >
-              BOOKING
-            </a>
-          </motion.div>
-        )}
-      </nav>
+      {/* Menu Links */}
+      {navLinks.map((link, i) => (
+        <motion.a
+          key={link}
+          href={`#${link.toLowerCase().replace(/\s/g, "-")}`}
+          onClick={() => setMobileMenuOpen(false)}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ delay: i * 0.1, duration: 0.3, ease: "easeOut" }}
+          className="text-2xl font-semibold tracking-[0.15em] text-[#2C2416] hover:text-[#8B7355] mb-6"
+        >
+          {link}
+        </motion.a>
+      ))}
+
+      <motion.a
+        href="#booking"
+        onClick={() => setMobileMenuOpen(false)}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 20 }}
+        transition={{ delay: 0.4, duration: 0.3, ease: "easeOut" }}
+        className="mt-4 px-10 py-4 border border-[#2C2416] text-[#2C2416] hover:bg-[#2C2416] hover:text-white transition-all duration-300 text-lg tracking-[0.15em]"
+      >
+        BOOKING
+      </motion.a>
+    </motion.div>
+  )}
+</AnimatePresence>
+
+</nav>
+
 
       {/* HERO */}
       <section id="home" className="min-h-screen relative flex items-center overflow-hidden">
@@ -176,24 +212,38 @@ export default function LeBoldStudiosHomePage() {
           </motion.div>
         </div>
       </section>
-
-      {/* WEDDING PHOTOS GALLERY */}
-      <section className="py-20 px-8 md:px-16 bg-[#EAE4D7]">
-        <div className="max-w-[1800px] mx-auto">
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[...Array(8)].map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="aspect-[3/4] bg-gradient-to-br from-[#C4B5A0] to-[#A89885] hover:scale-105 transition-transform duration-500 cursor-pointer"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+{/* WEDDING PHOTOS GALLERY */}
+<section className="py-20 px-8 md:px-16 bg-[#EAE4D7]">
+  <div className="max-w-[1800px] mx-auto">
+    <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {[
+        "/wedding6.jpeg",
+        "/wedding2t.jpeg",
+        "/wedding3t.jpeg",
+        "/wedding11.jpeg",
+        "/wedding5.jpeg",
+        "/wedding6.jpeg",
+        "/wedding7.jpeg",
+        "/wedding8.jpeg",
+      ].map((src, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.1 }}
+          className="aspect-[3/4] overflow-hidden rounded-lg cursor-pointer"
+        >
+          <img
+            src={src}
+            alt={`Wedding photo ${i + 1}`}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* STUDIO SECTION */}
       <section className="py-32 px-8 md:px-16 bg-[#F5F1E8]">
@@ -228,21 +278,40 @@ export default function LeBoldStudiosHomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="aspect-[4/5] bg-[#D4C9B5] border border-[#8B7355]/20"
-            />
+            >
+              <Image src="/wedding7.jpeg" alt="Studio Shoot" width={600} height={800} className="hidden lg:block w-full h-auto object-cover" />
+            </motion.div>
+           
           </div>
 
+
           <div className="grid md:grid-cols-4 gap-6 mt-12">
-            {[...Array(8)].map((_, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="aspect-square bg-gradient-to-br from-[#D4C9B5] to-[#C4B5A0] hover:scale-105 transition-transform duration-500 cursor-pointer"
-              />
-            ))}
-          </div>
+      {[
+        "/studio1.jpeg",
+        "/studio2.jpeg",
+        "/wedding3t.jpeg",
+        "/wedding4.jpeg",
+        "/wedding5.jpeg",
+        "/wedding6.jpeg",
+        "/wedding7.jpeg",
+        "/wedding8.jpeg",
+      ].map((src, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: i * 0.1 }}
+          className="aspect-square hover:scale-105 transition-transform duration-500 cursor-pointer"
+        >
+          <img
+            src={src}
+            alt={`Wedding photo ${i + 1}`}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </motion.div>
+      ))}
+    </div>
         </div>
       </section>
 
