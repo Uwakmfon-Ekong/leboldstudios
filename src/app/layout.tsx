@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "LeBold Studios",
   description: "Professional photography studio since 2013",
+  icons:{
+    icon:"/logo.png"
+  }
 };
 
 export default function RootLayout({
