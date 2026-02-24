@@ -7,7 +7,7 @@ import Image from "next/image";
 import logo from "../../../public/logo.png";
 
 const frameImages = [
-  "/frame11.jpeg",
+  "/frame3.jpeg",
   "/frame2.jpeg",
   "/frame10.jpeg",
   "/frame4.jpeg",
@@ -59,7 +59,7 @@ export default function FramesGallery() {
           </p>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="aspect-[4/5] overflow-hidden rounded-2xl">
-          <img src="/frame3.jpeg" alt="Featured Frame" className="w-full h-full object-cover" />
+          <img src="/frame11.jpeg" alt="Featured Frame" className="w-full h-full object-cover" />
         </motion.div>
       </header>
 

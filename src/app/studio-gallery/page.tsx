@@ -15,10 +15,10 @@ const studioImages = [
   "/studio7.jpeg",
   "/studio8.jpeg",
   "/studio9.jpeg",
-  "/studio1.jpeg",
-  "/studio4.jpeg",
-  "/studio3.jpeg",
-  "/studio5.jpeg",
+  "/studio10.jpeg",
+  "/studio11.jpeg",
+  "/studio12.jpeg",
+  "/studio13.jpeg",
 ];
 
 export default function StudioGallery() {

@@ -68,9 +68,9 @@ export default function LeBoldStudiosHomePage() {
   };
 
   // Gallery images — only 4 per section
-  const weddingImages = ["/wedding6.jpeg", "/wedding2t.jpeg", "/wedding3t.jpeg", "/wedding11.jpeg"];
+  const weddingImages = ["/wedding6.jpeg", "/wedding17.jpeg", "/wedding19.jpeg", "/wedding16.jpeg"];
   const studioImages = ["/studio1.jpeg", "/studio4.jpeg", "/studio3.jpeg", "/studio5.jpeg"];
-  const frameImages = ["/frame11.jpeg", "/frame2.jpeg", "/frame10.jpeg", "/frame4.jpeg"];
+  const frameImages = ["/frame6.jpeg", "/frame2.jpeg", "/frame10.jpeg", "/frame4.jpeg"];
   const babyImages = ["/baby1.jpeg", "/baby2.jpeg", "/baby3.jpeg", "/baby4.jpeg"];
   const audioImages = ["/audio1.jpeg", "/audio2.jpeg", "/audio3.jpeg", "/audio4.jpeg"];
 
@@ -432,7 +432,7 @@ export default function LeBoldStudiosHomePage() {
         <div className="max-w-[1800px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="aspect-[4/5] border border-[#8B7355]/20 overflow-hidden rounded-2xl order-2 lg:order-1">
-              <img src="/frame3.jpeg" alt="Frames & Prints Hero" className="w-full h-full object-cover" />
+              <img src="/frame11.jpeg" alt="Frames & Prints Hero" className="w-full h-full object-cover" />
             </div>
             <div className="order-1 lg:order-2">
               <div className="flex items-center gap-3 mb-6">
