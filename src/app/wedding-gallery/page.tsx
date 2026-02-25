@@ -24,6 +24,7 @@ const weddingImages = [
   "/wedding10.jpeg",
   "/wedding14.jpeg",
   "/wedding15.jpeg",
+  
 ];
 
 export default function WeddingGallery() {

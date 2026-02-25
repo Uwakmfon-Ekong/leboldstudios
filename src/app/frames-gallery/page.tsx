@@ -16,9 +16,18 @@ const frameImages = [
   "/frame7.jpeg",
   "/frame8.jpeg",
   "/frame11.jpeg",
-  "/frame2.jpeg",
-  "/frame10.jpeg",
-  "/frame4.jpeg",
+  "/frame12.jpeg",
+  "/frame13.jpeg",
+  "/frame14.jpeg",
+  "/frame15.jpeg",
+  "/frame16.jpeg",
+  "/frame17.jpeg",
+  "/frame18.jpeg",
+  "/frame19.jpeg",
+  "/frame20.jpeg",
+  "/frame21.jpeg",
+  "/frame22.jpeg",
+
 ];
 
 export default function FramesGallery() {

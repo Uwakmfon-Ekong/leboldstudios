@@ -10,15 +10,10 @@ const audioImages = [
   "/audio1.jpeg",
   "/audio2.jpeg",
   "/audio3.jpeg",
-  "/audio4.jpeg",
-  "/audio5.jpeg",
-  "/audio6.jpeg",
   "/audio1.jpeg",
   "/audio2.jpeg",
   "/audio3.jpeg",
-  "/audio4.jpeg",
-  "/audio5.jpeg",
-  "/audio6.jpeg",
+  
 ];
 
 export default function AudioGallery() {

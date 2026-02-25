@@ -13,12 +13,20 @@ const babyImages = [
   "/baby4.jpeg",
   "/baby5.jpeg",
   "/baby6.jpeg",
-  "/baby1.jpeg",
-  "/baby2.jpeg",
-  "/baby3.jpeg",
-  "/baby4.jpeg",
-  "/baby5.jpeg",
-  "/baby6.jpeg",
+  "/baby7.jpeg",
+  "/baby8.jpeg",
+  "/baby9.jpeg",
+  "/baby10.jpeg",
+  "/baby12.jpeg",
+  "/baby13.jpeg",
+  "/baby14.jpeg",
+  "/baby15.jpeg",
+  "/baby16.jpeg",
+  "/baby17.jpeg",
+  "/baby18.jpeg",
+  "/baby19.jpeg",
+  "/baby20.jpeg",
+  "/baby21.jpeg",
 ];
 
 export default function BabyGallery() {
@@ -67,7 +75,7 @@ export default function BabyGallery() {
             transition={{ duration: 1.2 }}
             className="relative overflow-hidden"
           >
-            <img src="/baby1.jpeg" alt="Baby Portrait" className="w-full h-full object-cover" />
+            <img src="/babyyy.jpeg" alt="Baby Portrait" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/30 to-transparent" />
           </motion.div>
         </div>
