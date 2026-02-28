@@ -56,10 +56,10 @@ export default function LeBoldStudiosHomePage() {
     try {
       
       await emailjs.sendForm(
-        "service_p43eeuy",      // e.g. "service_abc123"
-        "template_njjthw8",     // e.g. "template_xyz789"
+        "service_p43eeuy",      
+        "template_njjthw8",   
         formRef.current!,
-        "NseL7kQUC6oD0_3c-"       // e.g. "AbCdEfGhIjKlMnOp"
+        "NseL7kQUC6oD0_3c-"
       );
       setFormStatus("sent");
       setFormData({ name: "", email: "", phone: "", service: "", date: "", message: "" });

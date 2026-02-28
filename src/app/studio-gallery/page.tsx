@@ -4,7 +4,11 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { Cormorant, Tenor_Sans } from "next/font/google";
 import logo from "../../../public/logo.png";
+
+const cormorant = Cormorant({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
+const tenorSans = Tenor_Sans({ subsets: ["latin"], weight: "400" });
 
 const studioImages = [
   "/studio1.jpeg",
@@ -19,6 +23,9 @@ const studioImages = [
   "/studio11.jpeg",
   "/studio12.jpeg",
   "/studio13.jpeg",
+  "/studio14.jpeg",
+  "/studio15.jpeg",
+  "/studio16.jpeg",
 ];
 
 export default function StudioGallery() {
@@ -31,15 +38,12 @@ export default function StudioGallery() {
 
   return (
     <div className="min-h-screen bg-[#1A150D] text-[#F5F1E8]">
-      <style jsx global>{`
-        @import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Tenor+Sans&family=Gilda+Display&display=swap");
-      `}</style>
 
       {/* Nav */}
       <nav className="sticky top-0 z-40 bg-[#1A150D]/95 backdrop-blur-md border-b border-white/10 px-8 md:px-16 py-5 flex items-center justify-between">
         <a href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity text-[#F5F1E8]">
           <ArrowLeft size={18} />
-          <span className="text-xs tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>BACK HOME</span>
+          <span className={`text-xs tracking-[0.2em] ${tenorSans.className}`}>BACK HOME</span>
         </a>
         <Image src={logo} alt="LeBold Studios" className="w-14 h-14" />
       </nav>
@@ -47,20 +51,20 @@ export default function StudioGallery() {
       {/* Header */}
       <header className="py-24 px-8 md:px-16 max-w-[1400px] mx-auto">
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <span className="text-xs tracking-[0.3em] text-[#8B7355]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
+          <span className={`text-xs tracking-[0.3em] text-[#8B7355] ${tenorSans.className}`}>
             OUR WORK — 02
           </span>
-          <h1 className="text-6xl md:text-8xl font-light mt-4 mb-6 leading-none text-[#F5F1E8]" style={{ fontFamily: "'Cormorant', serif" }}>
+          <h1 className={`text-6xl md:text-8xl font-light mt-4 mb-6 leading-none text-[#F5F1E8] ${cormorant.className}`}>
             Studio<br /><span className="italic">Sessions</span>
           </h1>
           <div className="w-20 h-[1px] bg-[#8B7355] mb-8" />
-          <p className="text-lg md:text-xl leading-relaxed max-w-2xl text-[#F5F1E8]/70" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
+          <p className={`text-lg md:text-xl leading-relaxed max-w-2xl text-[#F5F1E8]/70 ${tenorSans.className}`}>
             The studio is our controlled canvas — where light obeys, shadows cooperate, and every frame is intentional. Whether you're a professional building a portfolio, an individual seeking portraits that truly capture who you are, or a brand in need of imagery that commands attention, our studio delivers. We combine technical precision with artistic instinct to create photographs that are impossible to ignore. You've never seen yourself quite like this.
           </p>
         </motion.div>
       </header>
 
-      {/* Grid Gallery — uniform squares */}
+      {/* Grid Gallery */}
       <section className="px-8 md:px-16 pb-32 max-w-[1800px] mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {studioImages.map((src, i) => (
@@ -77,6 +81,7 @@ export default function StudioGallery() {
               <img
                 src={src}
                 alt={`Studio ${i + 1}`}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-[#8B7355]/0 group-hover:bg-[#8B7355]/10 transition-all duration-300" />
@@ -107,7 +112,7 @@ export default function StudioGallery() {
               onClick={(e) => e.stopPropagation()}
             />
             <button onClick={(e) => { e.stopPropagation(); next(); }} className="absolute right-6 text-white/70 hover:text-white z-10"><ChevronRight size={40} /></button>
-            <span className="absolute bottom-6 text-white/40 text-sm tracking-widest" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
+            <span className={`absolute bottom-6 text-white/40 text-sm tracking-widest ${tenorSans.className}`}>
               {lightboxIndex + 1} / {studioImages.length}
             </span>
           </motion.div>
@@ -116,11 +121,11 @@ export default function StudioGallery() {
 
       {/* CTA */}
       <section className="py-24 px-8 md:px-16 bg-[#8B7355] text-center">
-        <p className="text-xs tracking-[0.3em] text-[#1A150D] mb-4" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>STEP INTO THE LIGHT</p>
-        <h2 className="text-4xl md:text-5xl font-light text-[#1A150D] mb-8" style={{ fontFamily: "'Cormorant', serif" }}>
+        <p className={`text-xs tracking-[0.3em] text-[#1A150D] mb-4 ${tenorSans.className}`}>STEP INTO THE LIGHT</p>
+        <h2 className={`text-4xl md:text-5xl font-light text-[#1A150D] mb-8 ${cormorant.className}`}>
           Book a <span className="italic">Studio Session</span>
         </h2>
-        <a href="/#booking" className="inline-block px-12 py-4 border border-[#1A150D] text-[#1A150D] hover:bg-[#1A150D] hover:text-[#F5F1E8] transition-all duration-300 text-sm tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
+        <a href="/#booking" className={`inline-block px-12 py-4 border border-[#1A150D] text-[#1A150D] hover:bg-[#1A150D] hover:text-[#F5F1E8] transition-all duration-300 text-sm tracking-[0.2em] ${tenorSans.className}`}>
           GET IN TOUCH
         </a>
       </section>
