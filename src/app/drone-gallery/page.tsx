@@ -6,6 +6,7 @@ import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { Cormorant, Tenor_Sans } from "next/font/google";
 import logo from "../../../public/logo.png";
+import Link from "next/link";
 
 const cormorant = Cormorant({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 const tenorSans = Tenor_Sans({ subsets: ["latin"], weight: "400" });
@@ -38,10 +39,10 @@ export default function DroneGallery() {
 
       {/* Nav */}
       <nav className="sticky top-0 z-40 bg-[#F5F1E8]/95 backdrop-blur-md border-b border-[#2C2416]/10 px-8 md:px-16 py-5 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity">
           <ArrowLeft size={18} />
           <span className={`text-xs tracking-[0.2em] ${tenorSans.className}`}>BACK HOME</span>
-        </a>
+        </Link>
         <Image src={logo} alt="LeBold Studios" className="w-14 h-14" />
       </nav>
 
@@ -122,9 +123,9 @@ export default function DroneGallery() {
         <h2 className={`text-4xl md:text-5xl font-light text-[#F5F1E8] mb-8 ${cormorant.className}`}>
           Book a <span className="italic">Drone Session</span>
         </h2>
-        <a href="/#booking" className={`inline-block px-12 py-4 border border-[#8B7355] text-[#8B7355] hover:bg-[#8B7355] hover:text-[#F5F1E8] transition-all duration-300 text-sm tracking-[0.2em] ${tenorSans.className}`}>
+        <Link href="/#booking" className={`inline-block px-12 py-4 border border-[#8B7355] text-[#8B7355] hover:bg-[#8B7355] hover:text-[#F5F1E8] transition-all duration-300 text-sm tracking-[0.2em] ${tenorSans.className}`}>
           GET IN TOUCH
-        </a>
+        </Link>
       </section>
     </div>
   );

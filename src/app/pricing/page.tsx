@@ -5,11 +5,9 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
+import Link from "next/link";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  show: (i = 0) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] } }),
-};
+
 
 export default function PricingPage() {
   const [activeTab, setActiveTab] = useState<"studio" | "events" | "wedding">("studio");
@@ -22,10 +20,10 @@ export default function PricingPage() {
 
       {/* NAV */}
       <nav className="sticky top-0 z-40 bg-[#0D0A06]/95 backdrop-blur-md border-b border-white/5 px-8 md:px-16 py-5 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity text-[#F5F1E8]">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity text-[#F5F1E8]">
           <ArrowLeft size={18} />
           <span className="text-xs tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>BACK HOME</span>
-        </a>
+        </Link>
         <Image src={logo} alt="LeBold Studios" className="w-14 h-14" />
       </nav>
 
@@ -223,13 +221,13 @@ export default function PricingPage() {
 
               <div className="border-t border-white/5 pt-8">
                 <p className="text-5xl font-light text-[#8B7355]" style={{ fontFamily: "'Cormorant', serif" }}>₦500,000</p>
-                <a
+                <Link
                   href="/#booking"
                   className="mt-6 inline-flex items-center gap-2 text-xs tracking-[0.2em] border border-[#8B7355] px-6 py-3 text-[#8B7355] hover:bg-[#8B7355] hover:text-[#0D0A06] transition-all duration-300"
                   style={{ fontFamily: "'Tenor Sans', sans-serif" }}
                 >
                   BOOK THIS PACKAGE <ArrowUpRight size={14} />
-                </a>
+                </Link>
               </div>
             </motion.div>
 
@@ -262,13 +260,13 @@ export default function PricingPage() {
 
               <div className="border-t border-white/5 pt-8">
                 <p className="text-5xl font-light text-[#8B7355]" style={{ fontFamily: "'Cormorant', serif" }}>₦350,000</p>
-                <a
+                <Link
                   href="/#booking"
                   className="mt-6 inline-flex items-center gap-2 text-xs tracking-[0.2em] border border-[#8B7355] px-6 py-3 text-[#8B7355] hover:bg-[#8B7355] hover:text-[#0D0A06] transition-all duration-300"
                   style={{ fontFamily: "'Tenor Sans', sans-serif" }}
                 >
                   BOOK THIS PACKAGE <ArrowUpRight size={14} />
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -323,13 +321,13 @@ export default function PricingPage() {
                   <p className="text-xs tracking-[0.2em] text-[#F5F1E8]/30 mb-2" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>INVESTMENT</p>
                   <p className="text-6xl md:text-7xl font-light text-[#8B7355]" style={{ fontFamily: "'Cormorant', serif" }}>₦2,000,000</p>
                 </div>
-                <a
+                <Link
                   href="/#booking"
                   className="inline-flex items-center gap-2 text-xs tracking-[0.2em] bg-[#8B7355] px-10 py-4 text-[#0D0A06] hover:bg-[#9E855F] transition-all duration-300"
                   style={{ fontFamily: "'Tenor Sans', sans-serif" }}
                 >
                   BOOK NOW <ArrowUpRight size={14} />
-                </a>
+                </Link>
               </div>
 
               <p className="text-[#F5F1E8]/20 text-xs mt-8 tracking-wide" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
@@ -346,15 +344,15 @@ export default function PricingPage() {
           NOT SURE WHICH PACKAGE?
         </p>
         <h3 className="text-3xl md:text-4xl font-light text-[#F5F1E8] mb-6" style={{ fontFamily: "'Cormorant', serif" }}>
-          Let's find your <span className="italic">perfect fit</span>
+          Lets find your <span className="italic">perfect fit</span>
         </h3>
-        <a
+        <Link
           href="/#booking"
           className="inline-flex items-center gap-2 border border-[#8B7355] px-10 py-4 text-[#8B7355] hover:bg-[#8B7355] hover:text-[#0D0A06] transition-all duration-300 text-xs tracking-[0.2em]"
           style={{ fontFamily: "'Tenor Sans', sans-serif" }}
         >
           CONTACT US <ArrowUpRight size={14} />
-        </a>
+        </Link>
       </section>
 
       {/* FOOTER */}

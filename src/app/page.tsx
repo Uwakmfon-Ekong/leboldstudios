@@ -54,10 +54,10 @@ export default function LeBoldStudiosHomePage() {
     setFormStatus("sending");
 
     try {
-      
+
       await emailjs.sendForm(
-        "service_p43eeuy",      
-        "template_njjthw8",   
+        "service_p43eeuy",
+        "template_njjthw8",
         formRef.current!,
         "NseL7kQUC6oD0_3c-"
       );
@@ -87,11 +87,10 @@ export default function LeBoldStudiosHomePage() {
 
       {/* Navigation */}
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-          scrolled
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled
             ? "bg-[#F5F1E8]/95 backdrop-blur-md border-b border-[#2C2416]/10"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="max-w-[1800px] mx-auto px-8 md:px-16 py-6 flex items-center justify-between">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -174,7 +173,10 @@ export default function LeBoldStudiosHomePage() {
                 PRICING
               </motion.a>
               <motion.button
-                onClick={(e) => { setMobileMenuOpen(false); scrollToBooking(e as any); }}
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  scrollToBooking(e);
+                }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
@@ -231,7 +233,7 @@ export default function LeBoldStudiosHomePage() {
             <div className="w-20 h-[1px] bg-[#8B7355] mb-8" />
 
             <p className="text-xl md:text-2xl leading-relaxed mb-12 max-w-2xl text-[#4A3F2E]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
-              Let the world's best wedding photographers tell your story.
+              Let the worlds best wedding photographers tell your story.
             </p>
 
             <div className="flex flex-wrap gap-6">
@@ -528,7 +530,7 @@ export default function LeBoldStudiosHomePage() {
                 BOOK A SESSION
               </span>
               <h2 className="text-5xl md:text-6xl lg:text-7xl mt-6 mb-8 leading-tight font-light text-[#F5F1E8]" style={{ fontFamily: "'Cormorant', serif" }}>
-                Let's Create
+                Let&apos;s Create
                 <br />
                 <span className="italic">Something</span>
                 <br />
@@ -536,7 +538,7 @@ export default function LeBoldStudiosHomePage() {
               </h2>
               <div className="w-16 h-[1px] bg-[#8B7355] mb-8" />
               <p className="text-[#F5F1E8]/70 leading-relaxed text-lg mb-10" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
-                Every great story deserves to be told beautifully. Reach out and let's begin crafting yours — from intimate portraits to grand wedding celebrations.
+                Every great story deserves to be told beautifully. Reach out and lets begin crafting yours — from intimate portraits to grand wedding celebrations.
               </p>
               <div className="space-y-4 text-[#F5F1E8]/60 text-sm tracking-wider mb-10" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
                 <p>📍 Udobio Street, Uyo, Akwa Ibom, Nigeria</p>
@@ -545,7 +547,7 @@ export default function LeBoldStudiosHomePage() {
               </div>
 
               {/* Social links */}
-             
+
             </motion.div>
 
             {/* Right — form */}
@@ -557,7 +559,7 @@ export default function LeBoldStudiosHomePage() {
                     Message Received
                   </h3>
                   <p className="text-[#F5F1E8]/60" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
-                    We'll be in touch within 24 hours.
+                    Well be in touch within 24 hours.
                   </p>
                   <button onClick={() => setFormStatus("idle")} className="mt-8 text-xs tracking-[0.2em] text-[#8B7355] underline underline-offset-4">
                     Send another message

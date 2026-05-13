@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
+import Link from "next/link";
 
 const audioImages = [
   "/audio1.jpeg",
@@ -32,10 +33,10 @@ export default function AudioGallery() {
 
       {/* Nav */}
       <nav className="sticky top-0 z-40 bg-[#0D0A06]/95 backdrop-blur-md border-b border-white/5 px-8 md:px-16 py-5 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity text-[#F5F1E8]">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity text-[#F5F1E8]">
           <ArrowLeft size={18} />
           <span className="text-xs tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>BACK HOME</span>
-        </a>
+        </Link>
         <Image src={logo} alt="LeBold Studios" className="w-14 h-14" />
       </nav>
 
@@ -144,9 +145,9 @@ export default function AudioGallery() {
         <h2 className="text-4xl md:text-5xl font-light text-[#F5F1E8] mb-8" style={{ fontFamily: "'Cormorant', serif" }}>
           Book <span className="italic">Audio Visual</span> Services
         </h2>
-        <a href="/#booking" className="inline-block px-12 py-4 border border-[#8B7355] text-[#8B7355] hover:bg-[#8B7355] hover:text-[#0D0A06] transition-all duration-300 text-sm tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
+        <Link href="/#booking" className="inline-block px-12 py-4 border border-[#8B7355] text-[#8B7355] hover:bg-[#8B7355] hover:text-[#0D0A06] transition-all duration-300 text-sm tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
           GET IN TOUCH
-        </a>
+        </Link>
       </section>
     </div>
   );

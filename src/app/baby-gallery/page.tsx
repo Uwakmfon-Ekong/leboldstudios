@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
+import Link from "next/link";
 
 const babyImages = [
   "/baby1.jpeg",
@@ -45,10 +46,10 @@ export default function BabyGallery() {
 
       {/* Nav */}
       <nav className="sticky top-0 z-40 bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#2C2416]/10 px-8 md:px-16 py-5 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity">
           <ArrowLeft size={18} />
           <span className="text-xs tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>BACK HOME</span>
-        </a>
+        </Link>
         <Image src={logo} alt="LeBold Studios" className="w-14 h-14" />
       </nav>
 
@@ -65,7 +66,7 @@ export default function BabyGallery() {
               </h1>
               <div className="w-20 h-[1px] bg-[#8B7355] mb-8" />
               <p className="text-lg md:text-xl leading-relaxed text-[#4A3F2E] max-w-lg" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
-                The first days, weeks, and months happen once. Tiny fingers, the softness of new skin, the wonder of a face discovering the world for the first time — these are not moments to be left to memory alone. Our baby photography sessions are crafted with the gentlest touch and the warmest patience, creating portraits that families return to for a lifetime. We work at your baby's pace, never rushing the magic.
+                The first days, weeks, and months happen once. Tiny fingers, the softness of new skin, the wonder of a face discovering the world for the first time — these are not moments to be left to memory alone. Our baby photography sessions are crafted with the gentlest touch and the warmest patience, creating portraits that families return to for a lifetime. We work at your baby pace, never rushing the magic.
               </p>
             </motion.div>
           </div>
@@ -140,9 +141,9 @@ export default function BabyGallery() {
         <h2 className="text-4xl md:text-5xl font-light text-[#2C2416] mb-8" style={{ fontFamily: "'Cormorant', serif" }}>
           Book a <span className="italic">Baby Session</span>
         </h2>
-        <a href="/#booking" className="inline-block px-12 py-4 bg-[#2C2416] text-[#F5F1E8] hover:bg-[#3D3022] transition-all duration-300 text-sm tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
+        <Link href="/#booking" className="inline-block px-12 py-4 bg-[#2C2416] text-[#F5F1E8] hover:bg-[#3D3022] transition-all duration-300 text-sm tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
           GET IN TOUCH
-        </a>
+        </Link>
       </section>
     </div>
   );

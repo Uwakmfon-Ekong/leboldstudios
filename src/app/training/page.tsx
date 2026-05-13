@@ -16,10 +16,10 @@ export default function TrainingPage() {
 
       {/* Nav */}
       <nav className="sticky top-0 z-40 bg-[#F5F1E8]/95 backdrop-blur-md border-b border-[#2C2416]/10 px-8 md:px-16 py-5 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity">
           <ArrowLeft size={18} />
           <span className={`text-xs tracking-[0.2em] ${tenorSans.className}`}>BACK HOME</span>
-        </a>
+        </Link>
         <Image src={logo} alt="LeBold Studios" className="w-14 h-14" />
       </nav>
 

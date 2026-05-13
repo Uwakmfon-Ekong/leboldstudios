@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 // Custom SVG icons for social platforms
 const InstagramIcon = () => (
@@ -79,7 +80,7 @@ const Footer = () => {
                   hoverColor: "hover:border-[#25D366] hover:text-[#25D366]",
                 },
               ].map((s) => (
-                <a
+                <Link
                   key={s.label}
                   href={s.href}
                   target="_blank"
@@ -89,7 +90,7 @@ const Footer = () => {
                   className={`w-11 h-11 border border-white/10 flex items-center justify-center text-[#F5F1E8]/40 ${s.hoverColor} transition-all duration-300 rounded-sm`}
                 >
                   {s.icon}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -195,12 +196,12 @@ const Footer = () => {
             © {new Date().getFullYear()} LEBOLD STUDIOS — ALL RIGHTS RESERVED
           </p>
           <div className="flex gap-6" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
-            <a
+            <Link
               href="/#booking"
               className="text-xs tracking-[0.2em] text-[#F5F1E8]/20 hover:text-[#8B7355] transition-colors duration-300"
             >
               BOOK NOW
-            </a>
+            </Link>
             <a
               href="mailto:Leboldafrica@gmail.com"
               className="text-xs tracking-[0.2em] text-[#F5F1E8]/20 hover:text-[#8B7355] transition-colors duration-300"

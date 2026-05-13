@@ -6,6 +6,7 @@ import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { Cormorant, Tenor_Sans } from "next/font/google";
 import logo from "../../../public/logo.png";
+import Link from "next/link";
 
 const cormorant = Cormorant({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 const tenorSans = Tenor_Sans({ subsets: ["latin"], weight: "400" });
@@ -41,10 +42,10 @@ export default function StudioGallery() {
 
       {/* Nav */}
       <nav className="sticky top-0 z-40 bg-[#1A150D]/95 backdrop-blur-md border-b border-white/10 px-8 md:px-16 py-5 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity text-[#F5F1E8]">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity text-[#F5F1E8]">
           <ArrowLeft size={18} />
           <span className={`text-xs tracking-[0.2em] ${tenorSans.className}`}>BACK HOME</span>
-        </a>
+        </Link>
         <Image src={logo} alt="LeBold Studios" className="w-14 h-14" />
       </nav>
 
@@ -59,7 +60,7 @@ export default function StudioGallery() {
           </h1>
           <div className="w-20 h-[1px] bg-[#8B7355] mb-8" />
           <p className={`text-lg md:text-xl leading-relaxed max-w-2xl text-[#F5F1E8]/70 ${tenorSans.className}`}>
-            The studio is our controlled canvas — where light obeys, shadows cooperate, and every frame is intentional. Whether you're a professional building a portfolio, an individual seeking portraits that truly capture who you are, or a brand in need of imagery that commands attention, our studio delivers. We combine technical precision with artistic instinct to create photographs that are impossible to ignore. You've never seen yourself quite like this.
+            The studio is our controlled canvas — where light obeys, shadows cooperate, and every frame is intentional. Whether you are a professional building a portfolio, an individual seeking portraits that truly capture who you are, or a brand in need of imagery that commands attention, our studio delivers. We combine technical precision with artistic instinct to create photographs that are impossible to ignore. Youve never seen yourself quite like this.
           </p>
         </motion.div>
       </header>
@@ -125,9 +126,9 @@ export default function StudioGallery() {
         <h2 className={`text-4xl md:text-5xl font-light text-[#1A150D] mb-8 ${cormorant.className}`}>
           Book a <span className="italic">Studio Session</span>
         </h2>
-        <a href="/#booking" className={`inline-block px-12 py-4 border border-[#1A150D] text-[#1A150D] hover:bg-[#1A150D] hover:text-[#F5F1E8] transition-all duration-300 text-sm tracking-[0.2em] ${tenorSans.className}`}>
+        <Link href="/#booking" className={`inline-block px-12 py-4 border border-[#1A150D] text-[#1A150D] hover:bg-[#1A150D] hover:text-[#F5F1E8] transition-all duration-300 text-sm tracking-[0.2em] ${tenorSans.className}`}>
           GET IN TOUCH
-        </a>
+        </Link>
       </section>
     </div>
   );
