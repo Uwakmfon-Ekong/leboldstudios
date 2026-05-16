@@ -14,6 +14,7 @@ const audioImages = [
   "/audio1.jpeg",
   "/audio2.jpeg",
   "/audio3.jpeg",
+  
 ];
 
 export default function AudioGallery() {
@@ -21,8 +22,7 @@ export default function AudioGallery() {
 
   const openLightbox = (i: number) => setLightboxIndex(i);
   const closeLightbox = () => setLightboxIndex(null);
-  const prev = () =>
-    setLightboxIndex((i) => (i! - 1 + audioImages.length) % audioImages.length);
+  const prev = () => setLightboxIndex((i) => (i! - 1 + audioImages.length) % audioImages.length);
   const next = () => setLightboxIndex((i) => (i! + 1) % audioImages.length);
 
   return (
@@ -33,17 +33,9 @@ export default function AudioGallery() {
 
       {/* Nav */}
       <nav className="sticky top-0 z-40 bg-[#0D0A06]/95 backdrop-blur-md border-b border-white/5 px-8 md:px-16 py-5 flex items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center gap-3 hover:opacity-70 transition-opacity text-[#F5F1E8]"
-        >
+        <Link href="/" className="flex items-center gap-3 hover:opacity-70 transition-opacity text-[#F5F1E8]">
           <ArrowLeft size={18} />
-          <span
-            className="text-xs tracking-[0.2em]"
-            style={{ fontFamily: "'Tenor Sans', sans-serif" }}
-          >
-            BACK HOME
-          </span>
+          <span className="text-xs tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>BACK HOME</span>
         </Link>
         <Image src={logo} alt="LeBold Studios" className="w-14 h-14" />
       </nav>
@@ -51,48 +43,20 @@ export default function AudioGallery() {
       {/* Hero */}
       <header className="relative min-h-[60vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/audio1.jpeg"
-            alt="Audio Visual Hero"
-            fill
-            priority
-            className="object-cover opacity-40"
-          />
+          <img src="/audio1.jpeg" alt="" className="w-full h-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0D0A06] via-[#0D0A06]/60 to-transparent" />
         </div>
         <div className="relative z-10 px-8 md:px-16 pb-20 max-w-[1400px]">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span
-              className="text-xs tracking-[0.3em] text-[#8B7355]"
-              style={{ fontFamily: "'Tenor Sans', sans-serif" }}
-            >
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <span className="text-xs tracking-[0.3em] text-[#8B7355]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
               OUR WORK — 05
             </span>
-            <h1
-              className="text-6xl md:text-8xl font-light mt-4 mb-6 leading-none text-[#F5F1E8]"
-              style={{ fontFamily: "'Cormorant', serif" }}
-            >
-              Audio
-              <br />
-              <span className="italic">Visual</span>
+            <h1 className="text-6xl md:text-8xl font-light mt-4 mb-6 leading-none text-[#F5F1E8]" style={{ fontFamily: "'Cormorant', serif" }}>
+              Audio<br /><span className="italic">Visual</span>
             </h1>
             <div className="w-20 h-[1px] bg-[#8B7355] mb-8" />
-            <p
-              className="text-lg md:text-xl leading-relaxed text-[#F5F1E8]/70 max-w-2xl"
-              style={{ fontFamily: "'Tenor Sans', sans-serif" }}
-            >
-              Sound and vision are partners in storytelling. Our audio visual
-              work brings together cinematic photography with production-quality
-              sound design to create experiences that are felt as much as they
-              are seen. From album covers and music video production stills to
-              live event coverage, we are the trusted creative partner for
-              artists, labels, and brands who refuse to settle. The result is
-              content that stops thumbs mid-scroll and builds lasting visual
-              identities.
+            <p className="text-lg md:text-xl leading-relaxed text-[#F5F1E8]/70 max-w-2xl" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
+              Sound and vision are partners in storytelling. Our audio visual work brings together cinematic photography with production-quality sound design to create experiences that are felt as much as they are seen. From album covers and music video production stills to live event coverage, we are the trusted creative partner for artists, labels, and brands who refuse to settle. The result is content that stops thumbs mid-scroll and builds lasting visual identities.
             </p>
           </motion.div>
         </div>
@@ -109,12 +73,7 @@ export default function AudioGallery() {
             className="col-span-2 aspect-video overflow-hidden rounded-lg cursor-pointer group"
             onClick={() => openLightbox(0)}
           >
-            <Image
-              src={audioImages[0]}
-              alt="Audio 1"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
+            <img src={audioImages[0]} alt="Audio 1" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -124,12 +83,7 @@ export default function AudioGallery() {
             className="aspect-video overflow-hidden rounded-lg cursor-pointer group"
             onClick={() => openLightbox(1)}
           >
-            <Image
-              src={audioImages[1]}
-              alt="Audio 2"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
+            <img src={audioImages[1]} alt="Audio 2" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           </motion.div>
         </div>
 
@@ -145,11 +99,10 @@ export default function AudioGallery() {
               className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative"
               onClick={() => openLightbox(i + 2)}
             >
-              <Image
+              <img
                 src={src}
                 alt={`Audio ${i + 3}`}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-[#8B7355]/0 group-hover:bg-[#8B7355]/10 transition-all duration-300" />
             </motion.div>
@@ -167,48 +120,19 @@ export default function AudioGallery() {
             className="fixed inset-0 z-50 bg-black/98 flex items-center justify-center"
             onClick={closeLightbox}
           >
-            <button
-              onClick={closeLightbox}
-              className="absolute top-6 right-6 text-white/70 hover:text-white z-10"
-            >
-              <X size={32} />
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                prev();
-              }}
-              className="absolute left-6 text-white/70 hover:text-white z-10"
-            >
-              <ChevronLeft size={40} />
-            </button>
-            <motion.div
+            <button onClick={closeLightbox} className="absolute top-6 right-6 text-white/70 hover:text-white z-10"><X size={32} /></button>
+            <button onClick={(e) => { e.stopPropagation(); prev(); }} className="absolute left-6 text-white/70 hover:text-white z-10"><ChevronLeft size={40} /></button>
+            <motion.img
               key={lightboxIndex}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="relative h-[90vh] w-[90vw]"
+              src={audioImages[lightboxIndex]}
+              alt=""
+              className="max-h-[90vh] max-w-[90vw] object-contain"
               onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={audioImages[lightboxIndex]}
-                alt="Preview"
-                fill
-                className="object-contain"
-              />
-            </motion.div>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                next();
-              }}
-              className="absolute right-6 text-white/70 hover:text-white z-10"
-            >
-              <ChevronRight size={40} />
-            </button>
-            <span
-              className="absolute bottom-6 text-white/40 text-sm tracking-widest"
-              style={{ fontFamily: "'Tenor Sans', sans-serif" }}
-            >
+            />
+            <button onClick={(e) => { e.stopPropagation(); next(); }} className="absolute right-6 text-white/70 hover:text-white z-10"><ChevronRight size={40} /></button>
+            <span className="absolute bottom-6 text-white/40 text-sm tracking-widest" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
               {lightboxIndex + 1} / {audioImages.length}
             </span>
           </motion.div>
@@ -217,23 +141,11 @@ export default function AudioGallery() {
 
       {/* CTA */}
       <section className="py-24 px-8 md:px-16 border-t border-white/5 text-center">
-        <p
-          className="text-xs tracking-[0.3em] text-[#8B7355] mb-4"
-          style={{ fontFamily: "'Tenor Sans', sans-serif" }}
-        >
-          BRING YOUR VISION TO LIFE
-        </p>
-        <h2
-          className="text-4xl md:text-5xl font-light text-[#F5F1E8] mb-8"
-          style={{ fontFamily: "'Cormorant', serif" }}
-        >
+        <p className="text-xs tracking-[0.3em] text-[#8B7355] mb-4" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>BRING YOUR VISION TO LIFE</p>
+        <h2 className="text-4xl md:text-5xl font-light text-[#F5F1E8] mb-8" style={{ fontFamily: "'Cormorant', serif" }}>
           Book <span className="italic">Audio Visual</span> Services
         </h2>
-        <Link
-          href="/#booking"
-          className="inline-block px-12 py-4 border border-[#8B7355] text-[#8B7355] hover:bg-[#8B7355] hover:text-[#0D0A06] transition-all duration-300 text-sm tracking-[0.2em]"
-          style={{ fontFamily: "'Tenor Sans', sans-serif" }}
-        >
+        <Link href="/#booking" className="inline-block px-12 py-4 border border-[#8B7355] text-[#8B7355] hover:bg-[#8B7355] hover:text-[#0D0A06] transition-all duration-300 text-sm tracking-[0.2em]" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
           GET IN TOUCH
         </Link>
       </section>
