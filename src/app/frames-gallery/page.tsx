@@ -69,7 +69,12 @@ export default function FramesGallery() {
           </p>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="aspect-[4/5] overflow-hidden rounded-2xl">
-          <img src="/frame11.jpeg" alt="Featured Frame" className="w-full h-full object-cover" />
+         <Image
+  src="/frame11.jpeg"
+  alt="Featured Frame"
+  fill
+  className="object-cover"
+/>
         </motion.div>
       </header>
 
@@ -86,7 +91,13 @@ export default function FramesGallery() {
               className="break-inside-avoid overflow-hidden rounded-lg cursor-pointer group relative border border-[#8B7355]/10"
               onClick={() => openLightbox(i)}
             >
-              <img src={src} alt={`Frame ${i + 1}`} className="w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+             <Image
+  src={src}
+  alt={`Frame ${i + 1}`}
+  width={800}
+  height={1000}
+  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+/>
               <div className="absolute inset-0 bg-[#2C2416]/0 group-hover:bg-[#2C2416]/10 transition-all duration-300" />
             </motion.div>
           ))}
@@ -105,15 +116,20 @@ export default function FramesGallery() {
           >
             <button onClick={closeLightbox} className="absolute top-6 right-6 text-white/70 hover:text-white z-10"><X size={32} /></button>
             <button onClick={(e) => { e.stopPropagation(); prev(); }} className="absolute left-6 text-white/70 hover:text-white z-10"><ChevronLeft size={40} /></button>
-            <motion.img
-              key={lightboxIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              src={frameImages[lightboxIndex]}
-              alt=""
-              className="max-h-[90vh] max-w-[90vw] object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
+           <motion.div
+  key={lightboxIndex}
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  className="relative h-[90vh] w-[90vw]"
+  onClick={(e) => e.stopPropagation()}
+>
+  <Image
+    src={frameImages[lightboxIndex]}
+    alt="Frame preview"
+    fill
+    className="object-contain"
+  />
+</motion.div>
             <button onClick={(e) => { e.stopPropagation(); next(); }} className="absolute right-6 text-white/70 hover:text-white z-10"><ChevronRight size={40} /></button>
             <span className="absolute bottom-6 text-white/40 text-sm tracking-widest" style={{ fontFamily: "'Tenor Sans', sans-serif" }}>
               {lightboxIndex + 1} / {frameImages.length}
