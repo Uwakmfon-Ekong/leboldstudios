@@ -14,27 +14,31 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "LeBold Studios",
-  description: "Professional photography studio since 2013",
-  
+  description: "Professional photography studio since 2008.",
   icons: {
-  icon: [
-    { url: "/logo.png", sizes: "32x32", type: "image/png" },
-  ],
-},
+    icon: [
+      { url: "/logo.png", sizes: "32x32", type: "image/png" },
+    ],
+  },
+  openGraph: {
+    title: "LeBold Studios",
+    description: "Professional photography studio since 2008.",
+    url: "https://www.leboldstudios.com",
+    siteName: "LeBold Studios",
+    images: [
+      {
+        url: "https://www.leboldstudios.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "LeBold Studios",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LeBold Studios",
+    description: "Professional photography studio since 2008.",
+    images: ["https://www.leboldstudios.com/og-image.jpg"],
+  },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
-}
