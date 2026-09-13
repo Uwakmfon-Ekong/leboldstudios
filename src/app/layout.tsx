@@ -14,15 +14,34 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "LeBold Studios",
+  description: "Professional photography studio since 2008.",
+  keywords: [
+    "photography",
+    "studio",
+    "professional",
+    "portrait",
+    "wedding",
+    "event",
+    "commercial",
+  ],
+  authors: [{ name: "LeBold Studios", url: "https://leboldstudios.com" }],
+  creator: "LeBold Studios",
+  publisher: "LeBold Studios",
+
   verification: {
     google: "XiqH1097vsfqZv7yWV3fMWCX2nJLN1FNwABWDxlJW0k",
   },
 
   icons: {
     icon: [
-      { url: "/logo.png", sizes: "32x32", type: "image/png" },
+      {
+        url: "/logo.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
     ],
   },
+
   openGraph: {
     title: "LeBold Studios",
     description: "Professional photography studio since 2008.",
@@ -38,6 +57,7 @@ export const metadata: Metadata = {
     ],
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "LeBold Studios",
@@ -45,3 +65,17 @@ export const metadata: Metadata = {
     images: ["https://leboldstudios.com/og-image.jpg"],
   },
 };
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        {children}
+      </body>
+    </html>
+  );
+}
