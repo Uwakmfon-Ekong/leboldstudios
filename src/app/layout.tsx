@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "LeBold Studios",
     images: [
       {
-        url: "https://leboldstudios.com/og-image.jpg",
+        url: "https://leboldstudios.com/leboldog.jpg",
         width: 1200,
         height: 630,
         alt: "LeBold Studios",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "LeBold Studios",
     description: "Professional photography studio since 2008.",
-    images: ["https://leboldstudios.com/og-image.jpg"],
+    images: ["https://leboldstudios.com/leboldog.jpg"],
   },
 };
 
